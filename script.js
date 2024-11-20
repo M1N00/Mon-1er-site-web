@@ -1,9 +1,9 @@
-// Récupère le bouton par son ID
+// Rï¿½cupï¿½re le bouton par son ID
 const bouton = document.getElementById("monBouton");
 const paragraphe = document.getElementById("monTexte");
 let appuyage = 0
 
-// Ajoute un écouteur d'événements pour le clic
+// Ajoute un ï¿½couteur d'ï¿½vï¿½nements pour le clic
 bouton.addEventListener("click", function() 
 {
     appuyage = appuyage + 1;
@@ -12,3 +12,16 @@ bouton.addEventListener("click", function()
     paragraphe.innerHTML = "Your click : " + appuyage;
 });
 
+fetch('https://ton-backend-sur-render.com/api/data', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ nom: 'Ton nom', message: 'Hello Backend!' }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('RÃ©ponse du serveur :', data);
+    })
+    .catch((error) => console.error('Erreur :', error));
+  
