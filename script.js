@@ -32,7 +32,7 @@ fetch('https://mon-1er-site-web.onrender.com/api/data', {
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify({ maVariable: variable }),
+  body: JSON.stringify({ maVariable: appuyage }),
 })
   .then((response) => response.json())
   .then((data) => {
