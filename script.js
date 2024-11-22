@@ -25,7 +25,13 @@ bouton.addEventListener("click", function()
       .catch((error) => console.error('Erreur :', error));
 });
 
-
+fetch('https://ton-backend-sur-render.com/api/variable') // Appelle la route du backend
+  .then((response) => response.json()) // Convertit la réponse en objet JavaScript
+  .then((data) => {
+    console.log('Le total des clics :', data.message); // Affiche la variable
+    document.body.innerHTML += `<p>${data.message}</p>`; // L'affiche sur la page
+  })
+  .catch((error) => console.error('Erreur :', error)); // En cas d'erreur
 
 
 

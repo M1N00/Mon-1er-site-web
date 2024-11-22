@@ -25,6 +25,11 @@ app.get('/', (req, res) => {
   res.send('Félicitations ! Ton backend est en ligne ! 🎉');
 });
 
+// Route pour envoyer une variable au frontend
+app.get('/api/variable', (req, res) => {
+  res.json({ message: messageCount }); // Envoie un objet JSON contenant la variable
+});
+
 // Démarre le serveur
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
