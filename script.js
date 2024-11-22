@@ -12,7 +12,7 @@ bouton.addEventListener("click", function()
     paragraphe.innerHTML = "Your click : " + appuyage;
 });
 
-fetch('https://ton-backend-sur-render.com/api/data', {
+/* fetch('https://ton-backend-sur-render.com/api/data', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,4 +24,18 @@ fetch('https://ton-backend-sur-render.com/api/data', {
       console.log('Réponse du serveur :', data);
     })
     .catch((error) => console.error('Erreur :', error));
-  
+
+    const variable = "Salut, backend !"; // La donnée que tu veux transférer*/
+
+fetch('https://ton-backend-sur-render.com/api/data', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ maVariable: variable }),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Réponse du serveur :', data); // Affiche la réponse du serveur
+  })
+  .catch((error) => console.error('Erreur :', error));

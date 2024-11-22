@@ -5,12 +5,14 @@ const PORT = process.env.PORT || 3000;
 // Middleware pour gérer les JSON
 app.use(express.json());
 
-// Exemple : route pour stocker des données
 app.post('/api/data', (req, res) => {
-  const data = req.body; // Récupère les données envoyées par ton site
-  console.log(data); // Affiche-les dans la console pour l'instant
-  res.json({ message: 'Données reçues avec succès !' });
+  const variableReçue = req.body.maVariable; // Récupère la variable envoyée par le client
+  console.log('Donnée reçue :', variableReçue); // Affiche la variable dans la console du serveur
+
+  // Répond au client pour confirmer la réception
+  res.json({ message: `J'ai bien reçu ta variable : ${variableReçue}` });
 });
+
 
 app.get('/', (req, res) => {
   res.send('Félicitations ! Ton backend est en ligne ! 🎉');
