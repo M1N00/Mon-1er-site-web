@@ -13,17 +13,20 @@ bouton.addEventListener("click", function()
 });
 
 
-
-
-fetch('https://mon-1er-site-web.onrender.com/api/data', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ maVariable: appuyage }),
-})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log('Réponse du serveur :', data); // Affiche la réponse du serveur
+while(true)
+{
+  fetch('https://mon-1er-site-web.onrender.com/api/data', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ maVariable: appuyage }),
   })
-  .catch((error) => console.error('Erreur :', error));
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Réponse du serveur :', data); // Affiche la réponse du serveur
+    })
+    .catch((error) => console.error('Erreur :', error));
+}
+
+
