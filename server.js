@@ -25,3 +25,9 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
 });
+
+const cors = require('cors');
+
+// Autorise toutes les origines
+app.use(cors());
+
