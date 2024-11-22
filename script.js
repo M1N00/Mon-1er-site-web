@@ -27,7 +27,7 @@ bouton.addEventListener("click", function()
 
     const variable = "Salut, backend !"; // La donnée que tu veux transférer*/
 
-fetch('https://ton-backend-sur-render.com/api/data', {
+fetch('https://mon-1er-site-web.onrender.com//api/data', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
