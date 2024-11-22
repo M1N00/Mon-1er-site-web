@@ -23,16 +23,16 @@ bouton.addEventListener("click", function()
     .then((data) => {
       console.log('Réponse du serveur :', data);
     })
-    .catch((error) => console.error('Erreur :', error));
+    .catch((error) => console.error('Erreur :', error));*/
 
-    const variable = "Salut, backend !"; // La donnée que tu veux transférer*/
+const variable = "Salut, backend !"; // La donnée que tu veux transférer
 
-fetch('https://mon-1er-site-web.onrender.com//api/data', {
+fetch('https://mon-1er-site-web.onrender.com/api/data', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify({ maVariable: appuyage }),
+  body: JSON.stringify({ maVariable: variable }),
 })
   .then((response) => response.json())
   .then((data) => {
