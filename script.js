@@ -10,23 +10,24 @@ bouton.addEventListener("click", function()
 
     console.log(appuyage);
     paragraphe.innerHTML = "Your click : " + appuyage;
+
+    fetch('https://mon-1er-site-web.onrender.com/api/data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ maVariable: appuyage }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Réponse du serveur :', data); // Affiche la réponse du serveur
+      })
+      .catch((error) => console.error('Erreur :', error));
 });
 
 
-while(true)
-{
-  fetch('https://mon-1er-site-web.onrender.com/api/data', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ maVariable: appuyage }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('Réponse du serveur :', data); // Affiche la réponse du serveur
-    })
-    .catch((error) => console.error('Erreur :', error));
-}
+
+
+
 
 
