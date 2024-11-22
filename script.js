@@ -16,7 +16,7 @@ bouton.addEventListener("click", function()
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ maVariable: appuyage }),
+      body: JSON.stringify({ maVariable: maVariable+1 }),
     })
       .then((response) => response.json())
       .then((data) => {
