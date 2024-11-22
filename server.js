@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors');
+// Autorise toutes les origines
+app.use(cors());
 
 let messageCount = 0; // Variable pour compter les messages
 
@@ -35,8 +38,5 @@ app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
 });
 
-const cors = require('cors');
 
-// Autorise toutes les origines
-app.use(cors());
 
