@@ -13,6 +13,9 @@ app.post('/api/data', (req, res) => {
   res.json({ message: `J'ai bien reçu ta variable : ${variableReçue}` });
 });
 
+app.get('/api/data', (req, res) => {
+  res.json({ message: 'Ceci est une réponse GET pour /api/data' });
+});
 
 app.get('/', (req, res) => {
   res.send('Félicitations ! Ton backend est en ligne ! 🎉');
