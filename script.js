@@ -17,7 +17,7 @@ fetch('https://ton-backend-sur-render.com/api/data', {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ nom: 'Ton nom', message: 'Hello Backend!' }),
+    body: JSON.stringify({ nom: 'M1N0', message: 'Hello Backend!' }),
   })
     .then((response) => response.json())
     .then((data) => {

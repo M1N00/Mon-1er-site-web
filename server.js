@@ -12,6 +12,10 @@ app.post('/api/data', (req, res) => {
   res.json({ message: 'Données reçues avec succès !' });
 });
 
+app.get('/', (req, res) => {
+  res.send('Félicitations ! Ton backend est en ligne ! 🎉');
+});
+
 // Démarre le serveur
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
