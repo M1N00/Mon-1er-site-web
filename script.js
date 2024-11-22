@@ -16,7 +16,7 @@ bouton.addEventListener("click", function()
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ maVariable: maVariable+1 }),
+      body: JSON.stringify({ maVariable: appuyage }), //TODO faire en sorte que sa fasse l'adition de toute les machines
     })
       .then((response) => response.json())
       .then((data) => {

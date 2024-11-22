@@ -2,13 +2,17 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+let messageCount = 0; // Variable pour compter les messages
+
 // Middleware pour gérer les JSON
 app.use(express.json());
 
 app.post('/api/data', (req, res) => {
   const variableReçue = req.body.maVariable; // Récupère la variable envoyée par le client
-  console.log('Donnée reçue :', variableReçue); // Affiche la variable dans la console du serveur
+  console.log("une personne a cliqué", variableReçue); // Affiche la variable dans la console du serveur
 
+  messageCount = messageCount+ 1;
+  console.log("Le total de clic vaut", messageCount);
   // Répond au client pour confirmer la réception
   res.json({ message: `J'ai bien reçu ta variable : ${variableReçue}` });
 });
