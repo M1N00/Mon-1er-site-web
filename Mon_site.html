@@ -22,6 +22,10 @@
             font-size: 0.9em;
             color: #555;
         }
+        progress {
+            width: 600px; 
+            height: 40px; 
+        }
     </style>
 </head>
 <body>
@@ -31,17 +35,27 @@
 
     <main>
         <p>Click 1'000'000 times with the whole world to win a price !</p>
+        <p>Attention ! All your progress will be lost when you close the tab. The only data recorded will be the total number of clicks from all users.</p>
         <a href="https://www.youtube.com/@M1N0_exe" target="_blank">My social media</a>
         <br><br>
         
-        <p style="font-size:75px;" id="monTexte">Your click : 0</p>
+        <p style="font-size:75px;" id="monTexte">Your click: 0</p>
 
         <button id="monBouton" style="font-size:100px; background-color:blue; color:white;">CLICK ME !!!</button>
 
+        <p style="font-size:50px;" id="NbrCliqueMonde">clicks loading...</p>
+
+        <p style="font-size:30px;" id="Pourcentage">percent loading...</p>
+        <progress id="Bar_de_progression" value=0 max="100"></progress>
+    
+       <a href="https://www.youtube.com/watch?v=BBJa32lCaaY" target="_blank" >
+        <img src="Image.PNG"  width="0%" height="0%" id="Image">
+       </a>
+     
     </main>
 
     <footer>
-        <p>&copy; 2024 - Made by M1N0 V 1.16</p>
+        <p>&copy; 2024 - Made by M1N0 V 1.17</p>
     </footer>
 
     <script src="script.js"></script>
