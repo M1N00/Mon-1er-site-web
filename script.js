@@ -1,4 +1,4 @@
-// R�cup�re le bouton par son ID
+
 const bouton = document.getElementById("monBouton");
 const paragraphe = document.getElementById("monTexte");
 const Text_HTML_Clic_totaux = document.getElementById("NbrCliqueMonde");
@@ -7,11 +7,28 @@ const Bar_de_progression = document.getElementById("Bar_de_progression");
 let Image_html = document.getElementById("Image");
 let appuyage = 0
 
+let Clic_cette_seconde_10;
+
+
+setInterval(()=>{
+  console.log("Nbr de clic enregistrer ces 10 secondes : "+ Clic_cette_seconde_10);
+  if(Clic_cette_seconde_10 > 10)
+  {
+    window.location.href = "https://mon-1er-site-web.vercel.app/cheat.html";
+  }
+},10000);
+setInterval(()=>{
+  Clic_cette_seconde_10 = 0;
+  console.log("Nbr de clic enregistrer ces 10 secondes : "+ Clic_cette_seconde_10);
+},10090);
 
 
 // Ajoute un �couteur d'�v�nements pour le clic
 bouton.addEventListener("click", function() 
 {
+  Clic_cette_seconde_10 = Clic_cette_seconde_10 + 1;
+
+
     appuyage = appuyage + 1;
 
     console.log(appuyage);
