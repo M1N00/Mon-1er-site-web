@@ -12,7 +12,7 @@ let Clic_cette_seconde_10;
 
 setInterval(()=>{
   console.log("Nbr de clic enregistrer ces 10 secondes : "+ Clic_cette_seconde_10);
-  if(Clic_cette_seconde_10 > 10)
+  if(Clic_cette_seconde_10 > 120)
   {
     window.location.href = "https://mon-1er-site-web.vercel.app/cheat.html";
   }
