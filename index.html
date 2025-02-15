@@ -1,69 +1,215 @@
 <!DOCTYPE html>
-<html lang="ang">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clic clickers</title>
+    <title>Arc en ciel</title>
     <style>
         body {
-            color: white;
-            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
-            background-color: darkblue;
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to right, white, #89dcff);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+           
         }
-        header {
-            background-color: blue;
+        .fixed-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
             color: white;
-            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000; /* Ensure the button is above other elements */
+            animation: fadeIn 2s ease-in-out; /* Ajoute l'animation */
         }
-        footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #555;
+        .fixed-button:hover {
+            background-color: #45a049;
         }
-        progress {
-            width: 300px; 
-            height: 25px; 
-            overflow: hidden;
+
+        .fermer-button {
+            
+            top: 40px; /* Abaisse le bouton de 20 pixels supplémentaires */
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+          
+        }
+        .fermer-button:hover {
+            background-color: #45a049;
+        }
+
+        .center-button {
+            display: block;
+            margin: 20px auto;
+            padding: 40px 80px; /* Enlarged button */
+            border-radius: 50px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: .5em;
+        }
+        .center-button:hover {
+            background-color: #45a049;
+        }
+        .background-div {
+            background-image: url('aquarelle-arc-ciel-abstrait-peint-main_100956-424-4.avif');
+            background-size: cover;
+            color: rgb(59, 59, 59);
+            padding: 0px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
+            font-size: 4vh;
+            animation: fadeIn 2s ease-in-out; /* Ajoute l'animation */
+        }
+        .background-div::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), #89dcff);
+            z-index: 1;
+        }
+        .background-div > * {
+            position: relative;
+            z-index: 2;
+        }
+        .Peinture-container {
+            
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            
+        }
+        .Peinture-container img  {
+            position: absolute;
+            width: 60vh; /* Adjusted size */
+            height: auto;
+        }
+        .Peinture1 {
+            top: 0%;
+            left: -5vh;
+            
+        }
+        .Peinture2 {
+            top: 30%;
+            right: -5vh;
+        }
+        .Peinture3 {
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        
-    </style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1514041501253744"crossorigin="anonymous"></script>
+        #hidden-div {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px; /* Adjust as needed */
+            height: 100%;
+            background-color: white;
+            z-index: 1001; /* Ensure it is above other elements */
+            animation: slideIn 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
+    
+   
 </head>
 <body>
-    <header>
-        <h1>Clic clickers</h1>
-    </header>
+    <button class="fixed-button" onclick="toggleDiv()">Menu</button>
 
-    <main>
-        <p>Click 1'000'000 times with the whole world to win a price !</p>
-        <p>Attention ! All your progress will be lost when you close the tab. The only data recorded will be the total number of clicks from all users.</p>
-        <a href="https://www.youtube.com/@M1N0_exe" target="_blank">My social media</a>
-        <br><br>
-        
-        <p style="font-size:75px;" id="monTexte">Your click: 0</p>
-
-        <button id="monBouton" style="font-size:100px; background-color:blue; color:white;">CLICK ME !!!</button>
-
-        <p style="font-size:50px;" id="NbrCliqueMonde">clicks loading...</p>
-
-        <p style="font-size:30px;" id="Pourcentage">percent loading...</p>
-        <progress id="Bar_de_progression" value=0 max="100"></progress>
+    <div id="hidden-div" style="display: none;">
+        <p></p>
+        <button class="fermer-button" onclick="toggleDiv()">Fermer</button>
+        <p>Contenu du div caché</p>
+    </div>
     
-       <a href="https://www.youtube.com/watch?v=BBJa32lCaaY" target="_blank" >
-        <img src="Image.PNG"  width="0%" height="0%" id="Image">
-       </a>
-     
-    </main>
+    <div class="background-div">
+        <h1>Jardin d'enfant arc-en-ciel</h1>
+        <h2>1037 Etagnières</h2>
+        <button class="center-button">Tarifs</button>
+        <button class="center-button">Formulaire d'inscription</button>
+    </div>
+    
 
-    <footer>
-        <p>&copy; 2024 - Made by M1N0 V 1.17</p>
-    </footer>
 
-    <script src="script.js"></script>
+
+    <div class="Peinture-container">
+        <img src="Peinture1.PNG" alt="Peinture1" class="Peinture1">
+        
+        <img src="Peinture2.PNG" alt="Peinture2" class="Peinture2">
+        <img src="Peinture3.PNG" alt="Peinture3" class="Peinture3">
+    </div>
+    <div style="font-size: 40px; text-align: left;" >
+        <p>Le jardin d'enfants Arc-en-Ciel est situé au chemin de l'Etang 1, 1037 Etagnières, en face de l'administration communale.</p>
+
+        <p></p>
+        
+        <p>
+            C'est dans un cadre chaleureux et sécurisant, que les enfants sont accueillis dès l'âge de 2 ans 1/2, jusqu'à 5 ans (2P).
+        </p>
+        <p>
+            Le jardin d'enfants Arc-en-Ciel est un lieu de découvertes, où les enfants jouent, ont une vie sociale, se familiarisent avec le partage, l'autonomie,  la collectivité, les différences entre enfants, la confiance en soi.
+            Chaque matin, un atelier est proposé.  Avec différents matériaux, l'enfant à la possibilité de peindre sur des supports, de cuisiner, d'écouter des histoires racontées par une éducatrice, de participer à des jeux de société, d'exercer sa motricité avec de la pâte à sel.. .
+            Tous les lundis matins, Sylviane Buchilly donne un cours d'expression corporelle, méthode Margaret Morris.
+            Quatre à cinq fois par année, des sorties en dehors du jardin d'enfants sont planifiées. 
+            Lorsque les températures sont plus clémentes et à partir du mois de mars, une fois par mois, une sortie en forêt est organisée, par tous les temps. Nous profitons des alentours du refuge d'Etagnières et d'être au vert pour observer, écouter, sentir, organiser des jeux.
+            En collaboration avec l'UAPE d'Etagnières, les classes enfantines, un bac avec de la terre est mis à notre disposition. Planter, semer. regarder les fleurs pousser, manger des tomates cerises, préparer des tisanes avec les herbes du jardin, font la joie des enfants.
+        </p>
+        <p>
+            Chaque enfant avec ses spécificités est le bienvenu. 
+            L'inclusion fait partie de la vie sociale.
+        </p>     
+    </div>
+    <div>
+        <p style="font-size: 40px;">Notre TWINT :</p>
+        <img src="QRcode.png" alt="" style="height: 30vh;height: 30vh;">
+    </div>
+
 </body>
+
+<script>
+       function toggleDiv() {
+        var div = document.getElementById("hidden-div");
+        if (div.style.display === "none") {
+            div.style.display = "block";
+            div.style.animation = "slideIn 0.5s forwards";
+            console.log("Toggled ON");
+        } else {
+            div.style.display = "none";
+            console.log("Toggled OFF");
+        }
+    }
+</script>
 </html>
